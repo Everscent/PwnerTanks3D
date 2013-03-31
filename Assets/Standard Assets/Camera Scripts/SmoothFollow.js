@@ -19,6 +19,8 @@ var height = 5.0;
 var heightDamping = 2.0;
 var rotationDamping = 3.0;
 
+var rotationAdjust = 0.0;
+
 // Place the script in the Camera-Control group in the component menu
 @script AddComponentMenu("Camera-Control/Smooth Follow")
 
@@ -29,7 +31,7 @@ function LateUpdate () {
 		return;
 	
 	// Calculate the current rotation angles
-	wantedRotationAngle = target.eulerAngles.y;
+	wantedRotationAngle = target.eulerAngles.y+ rotationAdjust;
 	wantedHeight = target.position.y + height;
 		
 	currentRotationAngle = transform.eulerAngles.y;
